@@ -1,0 +1,25 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+    int a[5]={1,2,4,5,6};
+    int sum=0,n=6; //with one missing number total there are 6 numbers
+    int total,missing_number;
+    //according to series formula
+    total=n*(n+1)/2;
+    for(int i=0;i<5;i++)
+    {
+        sum=sum+a[i];
+    }
+    missing_number= total-sum;
+    printf("in above series of element missing number is %d",missing_number);
+    return 0;
+}
