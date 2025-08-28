@@ -1,0 +1,35 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+void printTriangle(int n) {
+    for (int i = 1; i <= n; i++) {
+        
+        
+         for (int star = 1; star <= i; star++) {
+            printf("*");
+        }
+        for (int s = 1; s <= n - i; s++) {
+            printf(" ");
+        }
+    
+       
+        printf("\n");
+    }
+}
+
+int main() {
+    int n;
+    printf("Enter the number of rows: ");
+    scanf("%d", &n);
+
+    printTriangle(n);
+
+    return 0;
+}
