@@ -1,0 +1,46 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+
+int main()
+{
+    int a[10];
+    int temp;
+    printf("Enter the 10 values of lux:");
+    for(int i=0; i<10; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf( "\n Your enterted data is : ");
+    for(int i=0; i<10;i++)
+    {
+        printf(" %d ", a[i]);
+    }
+    // for decreasig  sequece
+    for(int i=0; i<10;i++)
+    {
+        for(int j=i+1;j<10;j++)
+        {
+            if(a[i]<a[j]) // for increasing sequece change the sign
+            {
+                temp =a[i];
+                a[i]=a[j];
+                a[j]= temp;
+                
+            }
+        }
+    }
+    printf("\n array i decreasing order :");
+    for (int i=0; i<10;i++)
+    {
+        printf(" %d", a[i]);
+    }
+    return 0;
+}
