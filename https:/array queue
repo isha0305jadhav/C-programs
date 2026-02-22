@@ -1,0 +1,95 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#define max 5
+int queue[max];
+int start = -1;
+int last = -1;
+void push(int value)
+{
+    if(last==max-1)
+    {
+        printf("queue is full");
+    }
+    else
+    {
+        if(start==-1)
+        {
+            start=0;
+        }
+        last++;
+        queue[last]=value;
+        printf("\n %d push to queue:", value);
+    }
+}
+int pop()
+{
+    if(start==-1||start>last)
+    {
+        printf("Queue is empty! Cannot dequeue.\n");
+        return -1;
+    }
+    else
+    {
+        int value = queue[start];
+        start++;
+        if (start > last) 
+        {
+            start = last = -1;
+        }
+        return value;
+    }
+}
+void display() 
+{
+    if (start == -1) 
+    {
+        printf("Queue is empty.\n");
+    } 
+    else 
+    {
+        printf("Queue elements: ");
+        for (int i = start; i <= last; i++) 
+        {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+}
+int main() 
+{
+    int choice, value;
+    while (1) 
+    {
+        printf("\nQueue Operations:\n");
+        printf("1. Enter\n2. get\n3. Display\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            printf("Enter value to enqueue: ");
+            scanf("%d", &value);
+            push(value);
+            break;
+        case 2:
+            value = pop();
+            if (value != -1)
+                printf("received value: %d\n", value);
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            return 0;
+        default:
+            printf("Invalid choice.\n");
+        }
+    }
+}

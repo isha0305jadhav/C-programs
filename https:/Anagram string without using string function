@@ -1,0 +1,59 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+anagram sring without using string function
+*******************************************************************************/
+#include <stdio.h>
+#include <stdbool.h>
+
+// Function to calculate frequency of each character
+void calculateFrequency(char* str, int freq[256]) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        freq[(int)str[i]]++;
+    }
+}
+
+// Function to check if two strings are anagrams
+bool areAnagrams(char* str1, char* str2) {
+    int freq1[256] = {0}; // Frequency array for first string
+    int freq2[256] = {0}; // Frequency array for second string
+
+    int i = 0;
+    while (str1[i] != '\0' && str2[i] != '\0') {
+        freq1[(int)str1[i]]++; // Increment frequency for characters in str1
+        freq2[(int)str2[i]]++; // Increment frequency for characters in str2
+        i++;
+    }
+
+    if (str1[i] != '\0' || str2[i] != '\0') {
+        return false; // If lengths are different, not anagrams
+    }
+
+    for (i = 0; i < 256; i++) {
+        if (freq1[i] != freq2[i]) {
+            return false; // Check if frequencies match
+        }
+    }
+
+    return true; // Strings are anagrams
+}
+
+int main() {
+    char str1[100], str2[100];
+
+    printf("Enter first string: ");
+    scanf("%s", str1);
+    printf("Enter second string: ");
+    scanf("%s", str2);
+
+    if (areAnagrams(str1, str2)) {
+        printf("The strings are anagrams.\n");
+    } else {
+        printf("The strings are not anagrams.\n");
+    }
+
+    return 0;
+}
